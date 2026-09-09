@@ -2,7 +2,7 @@
   "name": "emmanuel-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://eoagyen.github.io/emmanuelagyen.github.io/",
+  "homepage": "https://eoagyen.github.io/emmanuelagyen.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",
