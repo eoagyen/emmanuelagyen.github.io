@@ -1,0 +1,68 @@
+:root{
+  --navy:#0F172A;
+  --slate:#1E293B;
+  --teal:#14B8A6;
+  --blue:#3B82F6;
+  --bg:#F8FAFC;
+  --text:#334155;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: var(--navy);
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.hero-image {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px 80px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.page {
+  padding: 60px;
+}
+
+.footer {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
