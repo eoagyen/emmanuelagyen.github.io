@@ -14,6 +14,8 @@ export default function Navbar() {
         <NavLink to="/resume">Resume</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </div>
+
+      <NavLink to="/contact" className="contact-button">Contact Me</NavLink>
     </nav>
   );
 }

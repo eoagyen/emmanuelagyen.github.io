@@ -1,28 +1,4 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function Research() {
-  return (
-    <>
-      <Navbar />
-
-      <div className="page">
-        <h1>Research</h1>
-
-        <h2>
-          A Comparative Study of Deep Learning
-          Techniques for Glaucoma Detection
-          Using Fundus Images
-        </h2>
-
-        <p>
-          Comparative evaluation of CNNs,
-          Vision Transformers and Hybrid Models
-          using the AIROGS dataset.
-        </p>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { FaFileAlt } from "react-icons/fa";
+import Layout from "../components/Layout";
+export default function Research() { return <Layout><main className="page-content"><div className="container"><header className="page-heading"><h1>Research</h1><p>Exploring knowledge, advancing solutions</p></header><section className="research-feature"><img className="research-image" src="/images/glaucoma-retina.png" alt="Retinal diagnostic visualisation" /><div><span className="tag">MSc Thesis</span><h2>Comparative Study of Deep Learning Techniques for Glaucoma Detection Using Fundus Images</h2><p>An analytical exploration contrasting deep convolutional models (CNNs, ResNets) with Vision Transformers (ViTs) to optimize accuracy and clinical interpretability parameters in global screening pipelines.</p><button className="dark-btn">Read Full Thesis</button></div></section><section><div className="section-title"><h2>Publications</h2><a className="text-link" href="#all-publications">See All</a></div><div className="publication-list"><Publication title="Deep Learning Approaches for Glaucoma Detection: A Comparative Analysis" venue="Journal of Medical Imaging and AI - Under Review (2025)" /><Publication title="The Role of AI in Early Detection of Eye Diseases" venue="International Conference on Biomedical Engineering (2024)" /></div></section><section className="timeline-block"><h2 className="timeline-heading">Research Interests</h2><div className="interest-list">{["Computer Vision", "Medical Imaging", "Deep Learning", "Healthcare AI", "Explainable AI", "Data Science for Social Good"].map((item) => <span className="interest" key={item}>{item}</span>)}</div><div className="quote-banner">"Harnessing artificial intelligence to improve global eye health."</div></section></div></main></Layout>; }
+function Publication({ title, venue }) { return <article className="publication"><span className="detail-icon"><FaFileAlt /></span><div><h3>{title}</h3><p>{venue}</p></div></article>; }

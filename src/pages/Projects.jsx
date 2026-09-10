@@ -1,34 +1,5 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function Projects() {
-  const projects = [
-    "Glaucoma Detection Using Deep Learning",
-    "Power BI Analytics Dashboard",
-    "Azure Data Engineering",
-    "SQL Automation",
-    "Medical Image Classification",
-    "EDA Project"
-  ];
-
-  return (
-    <>
-      <Navbar />
-
-      <div className="page">
-        <h1>Projects</h1>
-
-        <div className="project-grid">
-          {projects.map((project) => (
-            <div className="project-card" key={project}>
-              <h3>{project}</h3>
-              <button>View Project</button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { useState } from "react";
+import Layout from "../components/Layout";
+import ProjectCard from "../components/ProjectCard";
+const projects = [["Glaucoma Detection Using Deep Learning", "A comparative study of CNNs, ResNet, and Vision Transformers for early diagnostic assessment.", ["Python", "PyTorch", "Computer Vision"], "retina", "Machine Learning"], ["Power BI Analytics Dashboards", "Interactive intelligence dashboards for medical practices and business operations with automated KPIs.", ["Power BI", "Data Analysis", "SQL"], "dashboard", "Data Analytics"], ["Azure Data Engineering Solutions", "End-to-end data pipeline implementations featuring Azure Data Factory, staging, and database optimisation.", ["Azure", "SQL", "ETL"], "azure", "Data Engineering"], ["SQL Automation Projects", "Automated daily reports, ETL schedules, and trigger-driven optimization procedures across relational schemas.", ["SQL", "Python", "Automation"], "azure", "Data Engineering"], ["Medical Image Classification", "High-performance diagnostic image classifications utilizing advanced convolutional architectures.", ["Python", "CNN", "PyTorch"], "retina", "Machine Learning"], ["Exploratory Data Analysis", "In-depth pattern mining and predictive feature discovery exercises on real-world unstructured datasets.", ["Python", "Pandas", "Seaborn"], "dashboard", "Data Analytics"]];
+export default function Projects() { const [filter, setFilter] = useState("All"); const visible = filter === "All" ? projects : projects.filter((item) => item[4] === filter); return <Layout><main className="page-content projects-page"><div className="container"><header className="page-heading"><h1>Projects</h1><p>A selection of my work in data science, machine learning, and analytics</p></header><div className="filters">{["All", "Machine Learning", "Data Analytics", "Data Engineering", "Other"].map((item) => <button key={item} onClick={() => setFilter(item)} className={`filter ${filter === item ? "active" : ""}`}>{item}</button>)}</div><div className="projects-grid">{visible.map(([title,description,tags,visual]) => <ProjectCard key={title} title={title} description={description} tags={tags} visual={visual} />)}</div></div></main></Layout>; }

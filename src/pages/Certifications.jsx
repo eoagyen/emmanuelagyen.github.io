@@ -1,23 +1,4 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function Certifications() {
-  return (
-    <>
-      <Navbar />
-
-      <div className="page">
-        <h1>Certifications</h1>
-
-        <ul>
-          <li>Microsoft Azure Fundamentals (AZ-900)</li>
-          <li>Power BI Certification</li>
-          <li>Data Science Certification</li>
-          <li>Machine Learning Certification</li>
-        </ul>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { FaAward, FaCertificate, FaCode, FaDatabase } from "react-icons/fa";
+import Layout from "../components/Layout";
+const certs = [["Microsoft Certified: Azure Fundamentals (AZ-900)", "Microsoft", "2024", FaAward], ["Power BI Data Analyst Associate", "Microsoft", "2023", FaDatabase], ["Data Science Professional Certificate", "IBM", "2023", FaCertificate], ["Machine Learning Specialization", "DeepLearning.AI", "2022", FaAward], ["SQL for Data Science", "Coursera", "2022", FaDatabase], ["Python for Data Analysis", "Coursera", "2022", FaCode]];
+export default function Certifications() { return <Layout><main className="page-content"><div className="container"><header className="page-heading"><h1>Certifications</h1><p>Continuous learning for greater impact.</p></header><div className="cert-grid">{certs.map(([title, org, year, Icon]) => <article className="cert-card" key={title}><div className="cert-mark"><span><Icon /></span></div><div className="cert-card-body"><h2>{title}</h2><div className="cert-meta"><strong>{org}</strong> &nbsp;•&nbsp; {year}</div><a href="#certificate" className="cert-link">View Certificate &nbsp;→</a></div></article>)}</div></div></main></Layout>; }

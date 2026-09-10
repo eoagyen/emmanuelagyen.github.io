@@ -1,39 +1,6 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function About() {
-  return (
-    <>
-      <Navbar />
-
-      <div className="page">
-        <h1>About Me</h1>
-
-        <p>
-          I am a Data Scientist and Biomedical Engineer
-          passionate about machine learning, healthcare
-          AI and data-driven decision making.
-        </p>
-
-        <h2>Education</h2>
-
-        <ul>
-          <li>MSc Computer Science - University of Ghana</li>
-          <li>BSc Biomedical Engineering - First Class</li>
-        </ul>
-
-        <h2>Skills</h2>
-
-        <div className="skills">
-          <span>Python</span>
-          <span>SQL</span>
-          <span>Power BI</span>
-          <span>Azure</span>
-          <span>PyTorch</span>
-        </div>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { FaCheckCircle } from "react-icons/fa";
+import Layout from "../components/Layout";
+const education = [["2025 - 2026", "MSc Computer Science (Ongoing)", "University of East London, United Kingdom", "Specializing in Advanced Machine Learning, Intelligent Systems, Data Structures, and Software Development Methodology."], ["2016 - 2020", "BSc Biomedical Engineering", "Kwame Nkrumah University of Science and Technology (KNUST), Ghana", "Honors degree. Explored Medical Informatics, Signals and Systems, Biomaterials, and Clinical Diagnostic Technology."]];
+const experience = [["2022 - Present", "Data Science Trainer", "DigiCAP IT and Analytics Program", "Conducted comprehensive curriculum development and bootcamps, successfully equipping 588+ learners with fundamental to advanced analytics capabilities."], ["2024 - 2025", "Research Assistant", "University of East London", "Investigated advanced deep learning paradigms (CNNs, ViTs) focused on medical imaging diagnostics and clinical informatics deployment."], ["2020 - 2022", "Freelance Data Analyst", "Self-employed / Consulting", "Delivered custom automated pipelines, Power BI analytics reporting, and SQL databases for international small-to-medium businesses."]];
+export function Timeline({ title, items }) { return <section className="timeline-block"><h2 className="timeline-heading">{title}</h2>{items.map(([date, role, org, detail]) => <article className="timeline-row" key={role}><div className="timeline-date">{date}</div><div><h3>{role}</h3><a href="#education">{org}</a><p>{detail}</p></div></article>)}</section>; }
+export default function About() { return <Layout><main className="page-content"><div className="container"><section className="about-intro"><img className="about-portrait" src="/images/emmanuel-portrait.png" alt="Emmanuel Obeng Agyen in a data science setting" /><div className="about-copy"><h1>About Me</h1><h2>Turning data into impact</h2><p>I am a multidisciplinary Data Scientist and Biomedical Engineer with a deep passion for unlocking insights to solve systemic challenges in healthcare, education, and commerce. I hold a strong foundation in applying machine learning methodologies to clinically relevant problems.</p><p>Through intensive training initiatives, I have successfully trained over 250+ students, 150+ corporate staff members, and guided 588+ DigiCAP learners into computational literacy, building key professional capacities for the modern analytical economy.</p><div className="strengths">{["Problem Solver", "Lifelong Learner", "Collaborator", "Impact Driven"].map((item) => <div className="strength" key={item}><FaCheckCircle />{item}</div>)}</div></div></section><Timeline title="Education" items={education} /><Timeline title="Professional Experience" items={experience} /></div></main></Layout>; }

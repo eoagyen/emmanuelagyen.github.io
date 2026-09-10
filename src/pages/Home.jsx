@@ -1,43 +1,7 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function Home() {
-  return (
-    <>
-      <Navbar />
-
-      <section className="hero">
-        <div>
-          <h1>Emmanuel Obeng Agyen</h1>
-
-          <h2>
-            Data Scientist | Machine Learning Engineer |
-            Biomedical Engineer
-          </h2>
-
-          <p>
-            Building AI solutions that improve healthcare,
-            education and business outcomes.
-          </p>
-
-          <button>View Projects</button>
-        </div>
-
-        <img
-          src="/profile.jpg"
-          alt="profile"
-          className="hero-image"
-        />
-      </section>
-
-      <section className="stats">
-        <div>250+ Students Trained</div>
-        <div>150+ Staff Trained</div>
-        <div>588+ DigiCAP Learners</div>
-        <div>5+ Major Projects</div>
-      </section>
-
-      <Footer />
-    </>
-  );
-}
+import { FaArrowRight, FaDatabase, FaEnvelope, FaGithub, FaGraduationCap, FaLinkedin, FaMedal, FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
+import ProjectCard from "../components/ProjectCard";
+const featured = [["Glaucoma Detection Using Deep Learning", "A comparative study of convolutional neural networks, ResNet, and vision transformers for early diagnostic assessment.", ["Python", "PyTorch", "Computer Vision"], "retina"], ["Power BI Analytics Dashboards", "Interactive intelligence dashboards for medical practices and business operations with automated KPI reporting.", ["Power BI", "Data Analysis", "SQL"], "dashboard"], ["Azure Data Engineering Solutions", "End-to-end data pipeline implementations featuring Azure Data Factory, robust staging, and database optimisation.", ["Azure", "SQL", "ETL"], "azure"]];
+export default function Home() { return <Layout><main><section className="hero"><div className="hero-inner"><div><span className="eyebrow">Hi, I'm</span><h1>Emmanuel Obeng Agyen</h1><div className="hero-role">Data Scientist | Biomedical Engineer | MSc Computer Science Candidate</div><p className="hero-copy">I use data science, machine learning, and innovative technology to solve real-world problems in healthcare, education, and business. Currently specializing in advanced computer vision solutions and artificial intelligence pipelines.</p><div className="hero-buttons"><Link to="/projects" className="primary-btn">View My Projects</Link><a className="secondary-btn" href="/cv/Emmanuel_Obeng_Agyen_CV.pdf" download>Download CV</a></div><div className="socials"><a href="https://linkedin.com/in/emmanuelagyen" aria-label="LinkedIn"><FaLinkedin /></a><a href="https://github.com/eoagyen" aria-label="GitHub"><FaGithub /></a><a href="mailto:emmanuelagyen@gmail.com" aria-label="Email"><FaEnvelope /></a></div><p className="hero-quote">"Data for a healthier, smarter, and more inclusive future."</p></div><img className="portrait" src="/images/emmanuel-portrait.png" alt="Emmanuel Obeng Agyen" /></div></section><section className="stats"><Stat icon={<FaGraduationCap />} value="250+" label="Students Trained" /><Stat icon={<FaUsers />} value="150+" label="Staff Trained" /><Stat icon={<FaMedal />} value="588+" label="DigiCAP Learners" /><Stat icon={<FaDatabase />} value="5+" label="Major Projects" /></section><section className="section"><div className="section-inner"><div className="section-title"><h2>Featured Projects</h2><Link to="/projects" className="text-link">See All <FaArrowRight /></Link></div><div className="projects-grid">{featured.map(([title,description,tags,visual]) => <ProjectCard key={title} title={title} description={description} tags={tags} visual={visual} />)}</div></div></section></main></Layout>; }
+function Stat({ icon, value, label }) { return <div className="stat-card"><span className="stat-icon">{icon}</span><div><strong>{value}</strong><small>{label}</small></div></div>; }

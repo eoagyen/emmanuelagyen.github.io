@@ -1,27 +1,5 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-export default function Contact() {
-  return (
-    <>
-      <Navbar />
-
-      <div className="page">
-        <h1>Contact</h1>
-
-        <form className="contact-form">
-          <input placeholder="Name" />
-          <input placeholder="Email" />
-          <input placeholder="Subject" />
-          <textarea placeholder="Message"></textarea>
-
-          <button type="submit">
-            Send Message
-          </button>
-        </form>
-      </div>
-
-      <Footer />
-    </>
-  );
-}
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaMedal } from "react-icons/fa";
+import Layout from "../components/Layout";
+export default function Contact() { const submit = (event) => { event.preventDefault(); event.currentTarget.reset(); }; return <Layout><main className="page-content"><div className="container"><header className="page-heading"><h1>Get In Touch</h1><p>Let's create impact together.</p></header><div className="contact-layout"><section className="contact-list"><Detail icon={<FaEnvelope />} label="Email" value="emmanuelagyen@gmail.com" /><Detail icon={<FaLinkedin />} label="LinkedIn" value="linkedin.com/in/emmanuelagyen" /><Detail icon={<FaGithub />} label="GitHub" value="github.com/eoagyen" /><Detail icon={<FaMapMarkerAlt />} label="Location" value="London, United Kingdom" /></section><form className="contact-form" onSubmit={submit}><div className="form-row"><Field label="Your Name" placeholder="Emmanuel Obeng Agyen" /><Field label="Your Email" type="email" placeholder="you@example.com" /></div><Field label="Subject" placeholder="Collaboration Opportunity" /><label className="field">Message<textarea placeholder="Let's discuss data projects..." required /></label><button className="primary-btn" type="submit">Send Message</button></form></div></div></main><div className="opportunity"><FaMedal />Open to opportunities in Data Science, Machine Learning, and Research.</div></Layout>; }
+function Detail({ icon, label, value }) { return <article className="contact-detail"><span className="detail-icon">{icon}</span><div><span>{label}</span><strong>{value}</strong></div></article>; }
+function Field({ label, type = "text", placeholder }) { return <label className="field">{label}<input type={type} placeholder={placeholder} required /></label>; }
