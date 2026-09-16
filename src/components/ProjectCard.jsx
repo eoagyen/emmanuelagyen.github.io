@@ -1,8 +1,10 @@
 import { FaArrowRight } from "react-icons/fa";
 
 export default function ProjectCard({ title, description, tags, visual = "retina" }) {
+  const visualImage = visual === "retina" ? `${import.meta.env.BASE_URL}images/glaucoma-retina.png` : undefined;
+
   return <article className="project-card">
-    <div className={`project-visual ${visual}`} />
+    <div className={`project-visual ${visual}`} style={{ backgroundImage: visualImage ? `url(${visualImage})` : undefined }} />
     <div className="project-body">
       <h3>{title}</h3>
       <p>{description}</p>
