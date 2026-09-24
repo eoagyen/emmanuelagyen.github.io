@@ -47,12 +47,12 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>
-          © 2025 Emmanuel Obeng Agyen.
+          © 2026 Emmanuel Obeng Agyen.
           All rights reserved.
         </p>
 
         <p>
-          Data Scientist | Biomedical Engineer
+          Data Analyst | Data Scientist
         </p>
       </div>
       </div>
